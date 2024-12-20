@@ -16,7 +16,7 @@ pipeline {
 
         stage('build docker image'){
         steps{
-            sh 'docker build -t java-quarkus-hello/app:${TAG} .'
+            sh 'docker build -t java-spring-hello/app:${TAG} .'
             }
         }
 
@@ -32,7 +32,7 @@ pipeline {
                     scannerHome = tool 'sonar-scanner';
                 }
                 withSonarQubeEnv('sonar-server'){
-                    sh "mvn clean install sonar:sonar -Dsonar.projectKey=java-quarkus-hello -Dsonar.sources=src/main/java/ -Dsonar.java.binaries=target/classes  -Dsonar.host.url=${env.SONAR_HOST_URL} -Dsonar.token=${env.SONAR_AUTH_TOKEN} -X"
+                    sh "mvn clean install sonar:sonar -Dsonar.projectKey=java-spring-hello -Dsonar.sources=src/main/java/ -Dsonar.java.binaries=target/classes  -Dsonar.host.url=${env.SONAR_HOST_URL} -Dsonar.token=${env.SONAR_AUTH_TOKEN} -X"
                 }
                 sh 'sleep 10'
             }
@@ -52,8 +52,8 @@ pipeline {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'nexus-user', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                         sh 'docker login -u $USERNAME -p $PASSWORD ${NEXUS_URL}'
-                        sh 'docker tag java-quarkus-hello/app:${TAG} ${NEXUS_URL}/java-quarkus-hello/app:${TAG}'
-                        sh 'docker push ${NEXUS_URL}/java-quarkus-hello/app:${TAG}'
+                        sh 'docker tag java-spring-hello/app:${TAG} ${NEXUS_URL}/java-spring-hello/app:${TAG}'
+                        sh 'docker push ${NEXUS_URL}/java-spring-hello/app:${TAG}'
                     }
                 }
             }
@@ -61,7 +61,7 @@ pipeline {
 
         stage("Apply kubernetes files"){
             steps{
-                sh '/usr/local/bin/kubectl apply -f ./kubernetes/java-quarkus-hello.yaml'
+                sh '/usr/local/bin/kubectl apply -f ./kubernetes/java-spring-hello.yaml'
             }
         }
     }
