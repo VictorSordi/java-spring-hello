@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: java-spring-hello
-        image: java-spring-hello/app:latest
+        image: java-spring-hello/app:v1.0.0
         resources:
           requests:
             memory: "64Mi"
