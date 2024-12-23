@@ -35,7 +35,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-          			<release>8</release>
+          			<release>21</release>
         		</configuration>
 			</plugin>
 		</plugins>
