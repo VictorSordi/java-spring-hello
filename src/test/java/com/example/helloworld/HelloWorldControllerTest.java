@@ -16,7 +16,7 @@ class HelloWorldControllerTest {
     private TestRestTemplate restTemplate;
 
     @Test
-    private void helloWorldTest() {
+    void helloWorldTest() {
         // Realiza uma solicitação GET para o endpoint "/"
         ResponseEntity<String> response = restTemplate.getForEntity("/", String.class);
 
