@@ -22,4 +22,6 @@ class HelloWorldControllerTest {
 
         // Verifica se o status da resposta é 200 (OK) e se o corpo da resposta é "Hello, World!"
         assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertEquals("Hello, World!", response.getBody()
+        assertEquals("Hello, World!", response.getBody());
+    }
+}
