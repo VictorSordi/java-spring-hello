@@ -43,9 +43,24 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.5.2</version>
 				<configuration>
-					<skip>true</skip>
+					<includes>
+                    	<include>**/*Test.java</include>
+                	</includes>
  				</configuration>
 			</plugin>
+			<plugin>
+            	<groupId>org.jacoco</groupId>
+            	<artifactId>jacoco-maven-plugin</artifactId>
+            	<version>0.8.12</version>
+            	<executions>
+               		<execution>
+                    	<goals>
+                        	<goal>prepare-agent</goal>
+                        	<goal>report</goal>
+                    	</goals>
+                	</execution>
+            	</executions>
+        	</plugin>
 		</plugins>
 	</build>
 </project>
