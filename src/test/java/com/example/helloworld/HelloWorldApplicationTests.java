@@ -17,6 +17,6 @@ class HelloWorldApplicationTests {
 
         // Verifica se o controller foi inicializado corretamente
         // Caso contrário, o Spring Boot não terá carregado corretamente o contexto
-        assertNotNull(helloWorldController, "O controller não foi inicializado corretamente.");
+        assertNotNull(HelloWorldController, "O controller não foi inicializado corretamente.");
     }
 }
