@@ -52,7 +52,7 @@ metadata:
     kubernetes.io/ingressClassName: "traefik"
 spec:
   rules:
-  - host: "www.192.168.56.2.sslip.io"
+  - host: "www.192.168.56.2.xip.io"
     http:
       paths:
       - pathType: Prefix
