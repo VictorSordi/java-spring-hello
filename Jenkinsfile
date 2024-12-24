@@ -11,6 +11,9 @@ pipeline {
                 script { 
                     sh 'mvn clean package'
                     sh 'mvn test'
+                    sh 'mvn jacoco:report'
+                    sh 'ls target/site/jacoco/' 
+
                 } 
             } 
         }   
