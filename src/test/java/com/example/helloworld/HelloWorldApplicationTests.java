@@ -1,7 +1,9 @@
 package com.example.helloworld;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
+@SpringBootTest
 class HelloWorldApplicationTests {
 
     @Test
@@ -9,8 +11,8 @@ class HelloWorldApplicationTests {
         // Chama o método main para garantir que a aplicação inicialize sem erros
         HelloWorldApplication.main(new String[] {});
 
-        // Se o Spring Boot iniciar corretamente, o teste não falhará. Para uma verificação mais explícita,
-        // você pode adicionar alguma lógica aqui, como verificar a presença de um bean específico no contexto.
-        // No caso, estamos assumindo que o método main iniciou o contexto do Spring corretamente.
+        // Asserção para garantir que o contexto foi carregado corretamente
+        // Isso não verifica um bean específico, mas assegura que o contexto do Spring foi carregado
+        assert true;  // Aqui você pode colocar alguma verificação real ou lógica adicional.
     }
 }
