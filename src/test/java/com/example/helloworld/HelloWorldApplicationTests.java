@@ -8,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 class HelloWorldApplicationTests {
 
     @Autowired
-    private HelloWorldController helloWorldController;  // Supondo que você tenha um controller
+    private HelloWorldController HelloWorldController;  // Supondo que você tenha um controller
 
     @Test
     void testMainMethod() {
