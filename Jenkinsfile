@@ -36,7 +36,7 @@ pipeline {
                     scannerHome = tool 'sonar-scanner';
                 }
                 withSonarQubeEnv('sonar-server'){
-                    sh "mvn clean install sonar:sonar -Dsonar.projectKey=java-spring-hello -Dsonar.sources=src/main/java/ -Dsonar.java.binaries=target/classes  -Dsonar.host.url=${env.SONAR_HOST_URL} -Dsonar.token=${env.SONAR_AUTH_TOKEN} -X"
+                    sh "mvn clean install sonar:sonar -Dsonar.projectKey=java-spring-hello -Dsonar.sources=src/main/java/ -Dsonar.java.binaries=target/classes -Dsonar.jacoco.reportPaths=target/site/jacoco/jacoco.xml  -Dsonar.host.url=${env.SONAR_HOST_URL} -Dsonar.token=${env.SONAR_AUTH_TOKEN} -X"
                 }
                 sh 'sleep 10'
             }
