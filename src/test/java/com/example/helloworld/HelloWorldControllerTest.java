@@ -18,7 +18,7 @@ class HelloWorldControllerTest {
     @Test
     void helloWorldTest() {
         // Realiza uma solicitação GET para o endpoint "/"
-        ResponseEntity<String> response = restTemplate.getForEntity("/", String.class);
+        var response = restTemplate.getForEntity("/", String.class);
 
         // Verifica se o status da resposta é 200 (OK) e se o corpo da resposta é "Hello, World!"
         assertEquals(HttpStatus.OK, response.getStatusCode());
