@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                              http://maven.apache.org/xsd/settings-1.0.xsd">
+
+    <!-- Repositórios para download de dependências -->
+    <mirrors>
+        <mirror>
+            <id>nexus</id>
+            <url>http://localhost:8091/repository/maven-public/</url>
+            <mirrorOf>external:*</mirrorOf>
+            <blocked>false</blocked>
+        </mirror>
+    </mirrors>
+
+    <!-- Servidores para autenticação (se necessário) -->
+    <servers>
+        <server>
+            <id>nexus-repository</id> <!-- O ID do repositório no pom.xml ou nos plugins -->
+            <username>${env.NEXUS_USERNAME}</username> <!-- Variáveis de ambiente para segurança -->
+            <password>${env.NEXUS_PASSWORD}</password> <!-- Usando as variáveis de ambiente -->
+        </server>
+    </servers>
+
+    <!-- Definições globais (opcional) -->
+    <proxies>
+        <!-- Adicionar configurações de proxy, se necessário -->
+    </proxies>
+
+    <activeProfiles>
+        <!-- Define o perfil ativo, caso tenha um específico -->
+        <activeProfile>default</activeProfile>
+    </activeProfiles>
+
+</settings>
