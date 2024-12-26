@@ -10,6 +10,7 @@ pipeline {
             steps { 
                 script { 
                     sh 'mvn clean package'
+                    sh "mvn clean install -s ~/.m2/settings.xml"
                     sh 'mvn test'
                     sh 'mvn jacoco:report'
                     sh 'ls target/site/jacoco/' 
